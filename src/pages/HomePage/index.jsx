@@ -102,7 +102,7 @@ export default function Home() {
   // Função para gerar a resposta da IA (você pode integrar uma API real aqui)
   const responderIA = async (mensagemUsuario) => {
     try {
-      const res = await axios.get(`/gemini/?question=${mensagemUsuario}`);
+      const res = await axios.get(`https://gemini-service-rish.onrender.com/api/?question=${mensagemUsuario}`);
       // console.log(res.data.resposta);
       return `${res.data.resposta}`;
     } catch (error) {
@@ -187,7 +187,7 @@ export default function Home() {
 
   const fetchIP = async () => {
     try {
-      const res = await axios.post(`/nao/ip`, { robot_ip: ipRobo });
+      const res = await axios.post(`https://nao-robot-service.onrender.com/ip`, { robot_ip: ipRobo });
       console.log(res.data)      
     } catch (e) {
       console.log(e);
@@ -252,7 +252,7 @@ export default function Home() {
   const fetchQuestion = async (q) => {
     try {
       // eslint-disable-next-line no-unused-vars
-      const ttsResponse = await axios.post(`/nao/ask`, { response: q, robot_ip: ipRobo });
+      const ttsResponse = await axios.post(`https://nao-robot-service.onrender.com/ask`, { response: q, robot_ip: ipRobo });
     } catch (error) {
       console.error(error);
     }
